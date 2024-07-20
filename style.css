@@ -1,0 +1,35 @@
+.tier-List{
+    border: 2px solid black;
+    border-radius: 2rem;
+    padding: 10px;
+    margin: 2em;
+    display: flex;
+
+
+}
+.tier-List > h1{
+    border-right: 2px solid black;
+    padding-right:5px ;
+
+}
+
+form{
+    margin: 4px;
+}
+
+#non-tier-list-img-section{
+    display: flex;
+    gap:2px;
+}
+.item-container{
+    height:75px;
+    width: 75px;
+
+
+}
+.item-container > img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    
+}
