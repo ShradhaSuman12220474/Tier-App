@@ -1,5 +1,15 @@
 const tierName = document.getElementById('tier');
 
+
+// const tierList = document.querySelectorAll('.tier-List')
+// console.log(tierList);
+
+const itemContainers = document.getElementsByClassName('item-container');
+// for(const itemContainer of itemContainers) {
+//     setUpItemContainerForDrag(itemContainer);
+// }
+
+
 const imageUrl = document.getElementById('item');
 console.log(imageUrl);
 // console.log(tierName);
@@ -46,10 +56,12 @@ function addList(tierName){
     // now merging all the individual elements that we have created;
     newTierList.appendChild(heading);
     newTierList.appendChild(newTierListItems);
-    // now attaching this newTierList to he section
+    // now attaching this newTierList to the section
 
     const tierSection = document.getElementById('tier-List-Section')
     tierSection.appendChild(newTierList);
+
+    setUpDropZoneInTierListItems(newTierListItems);
 }
 
 
@@ -69,6 +81,43 @@ function createTierListItems(imageUrl){
     const imgSection = document.getElementById('non-tier-list-img-section');
     imgSection.appendChild(imageDiv);
 
+    setUpItemContainerForDrag(imageDiv);
+
 
 
 }
+
+
+// console.log(itemContainers);
+
+let currentDraggedItem;
+
+function setUpItemContainerForDrag(itemContainer){
+    itemContainer.addEventListener("dragstart",(event)=>{
+        console.log("Starting dragging");
+        currentDraggedItem = event.target.parentNode;
+        console.log(currentDraggedItem);
+    });
+}
+
+
+function setUpDropZoneInTierListItems(tierListItems){
+    // console.log(tierList);
+    // console.log("drag event");
+    tierListItems.addEventListener('drop',(event)=>{// dropping will not work by default it id dissabled
+        event.preventDefault();
+        // console.log("dropping");
+    });
+
+    tierListItems.addEventListener('dragover',function (event){// here we have to make  a non arrow funciton to use the this keyword
+        console.log("dragged over the drop zone");
+        if(this !== currentDraggedItem.parentNode){
+            this.appendChild(currentDraggedItem);
+        }
+
+    })
+
+    
+}
+
+// const tierList = document.querySelectorAll('.')

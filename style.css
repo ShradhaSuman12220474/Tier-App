@@ -33,3 +33,9 @@ form{
     object-fit: contain;
     
 }
+
+.tier-list-items{
+    min-width: 80%;
+    display: flex;
+    padding: 4px;
+}
