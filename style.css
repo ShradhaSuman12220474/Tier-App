@@ -1,15 +1,25 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: #242222;
+}
+
+h1,label{
+    color: white;
+}
+
 .tier-List{
-    border: 2px solid black;
+    border: 2px solid white;
     border-radius: 2rem;
     padding: 10px;
     margin: 2em;
     display: flex;
-
+;
 
 }
 .tier-List > h1{
-    border-right: 2px solid black;
-    padding-right:5px ;
+    border-right: 2px solid white;
+    padding-right:5px;
 
 }
 

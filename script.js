@@ -11,7 +11,7 @@ const itemContainers = document.getElementsByClassName('item-container');
 
 
 const imageUrl = document.getElementById('item');
-console.log(imageUrl);
+// console.log(imageUrl);
 // console.log(tierName);
 const submitBtn = document.getElementById('button1');
 
@@ -83,6 +83,8 @@ function createTierListItems(imageUrl){
 
     setUpItemContainerForDrag(imageDiv);
 
+    // setUpItemContainerForRemoval(imageDiv);
+
 
 
 }
@@ -94,10 +96,17 @@ let currentDraggedItem;
 
 function setUpItemContainerForDrag(itemContainer){
     itemContainer.addEventListener("dragstart",(event)=>{
-        console.log("Starting dragging");
+        // console.log("Starting dragging");
         currentDraggedItem = event.target.parentNode;
-        console.log(currentDraggedItem);
+        // console.log(currentDraggedItem);
     });
+    // console.log(itemContainer);
+    itemContainer.addEventListener('dblclick',(event)=>{
+        const parent = event.target.parentNode;
+        const nonTierList = document.getElementById('non-tier-list-img-section');
+        nonTierList.appendChild(parent);
+
+    })
 }
 
 
@@ -110,7 +119,7 @@ function setUpDropZoneInTierListItems(tierListItems){
     });
 
     tierListItems.addEventListener('dragover',function (event){// here we have to make  a non arrow funciton to use the this keyword
-        console.log("dragged over the drop zone");
+        // console.log("dragged over the drop zone");
         if(this !== currentDraggedItem.parentNode){
             this.appendChild(currentDraggedItem);
         }
